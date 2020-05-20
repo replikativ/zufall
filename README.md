@@ -13,7 +13,7 @@ Add  to your dependencies:
    
 Start a repl and start hacking:
 
-````clojure
+```clojure
 (require '[zufall.core :refer [rand-german-mammal]])
 (rand-german-mammal)
 ;; => "psychotic-lesser-mouse-eared-bat"
