@@ -6,7 +6,12 @@ Aims to be a generator for all sorts of ids and names. For now only a simple nam
 Don't know what to name your things? Why not name it after some animals! For now you can randomly generator animal names from german mammals. Idea is based on [Docker's name generator](https://github.com/docker/docker/blob/master/pkg/namesgenerator/names-generator.go).
 
 ## Usage
-Add  to your dependencies. Start a repl and start hacking:
+Add  to your dependencies:  
+
+[![Clojars Project](http://clojars.org/io.replikativ/zufall/latest-version.svg)](http://clojars.org/io.replikativ/zufall)
+  
+   
+Start a repl and start hacking:
 
 ````clojure
 (require '[zufall.core :refer [rand-german-mammal]])
