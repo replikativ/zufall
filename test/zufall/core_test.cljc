@@ -1,6 +1,6 @@
 (ns zufall.core-test
-  (:require [clojure.test :refer :all]
-            [zufall.core :refer :all]))
+  (:require [#?(:clj clojure.test :cljs cljs.test) :refer [deftest is testing]]
+            [zufall.core :refer [rand-german-mammal]]))
 
 (deftest german-mammal-test
   (testing "basic generation"
