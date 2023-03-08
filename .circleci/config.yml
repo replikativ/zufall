@@ -12,14 +12,14 @@ workflows:
           context: dockerhub-deploy
           requires:
             - tools/setup
-      #- tools/cljstest:
-      #   context: docker-deploy
-      #   requires:
-      #     - tools/build
-      #- tools/format:
-      #    context: dockerhub-deploy
-      #    requires:
-      #      - tools/setup
+      - tools/cljstest:
+         context: docker-deploy
+         requires:
+           - tools/build
+      - tools/format:
+          context: dockerhub-deploy
+          requires:
+            - tools/setup
       - tools/build:
           context: dockerhub-deploy
           requires:
@@ -33,8 +33,8 @@ workflows:
               only: main
           requires:
             - tools/unittest
-          #  - tools/cljstest
-          #  - tools/format
+            - tools/cljstest
+            - tools/format
             - tools/build
       - tools/release:
           context:
