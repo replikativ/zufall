@@ -1,0 +1,47 @@
+version: 2.1
+
+orbs:
+  tools: replikativ/clj-tools@0
+
+workflows:
+  build_test_and_deploy:
+    jobs:
+      - tools/setup:
+          context: dockerhub-deploy
+      - tools/unittest:
+          context: dockerhub-deploy
+          requires:
+            - tools/setup
+      #- tools/cljstest:
+      #   context: docker-deploy
+      #   requires:
+      #     - tools/build
+      #- tools/format:
+      #    context: dockerhub-deploy
+      #    requires:
+      #      - tools/setup
+      - tools/build:
+          context: dockerhub-deploy
+          requires:
+            - tools/setup
+      - tools/deploy:
+          context:
+            - dockerhub-deploy
+            - clojars-deploy
+          filters:
+            branches:
+              only: main
+          requires:
+            - tools/unittest
+          #  - tools/cljstest
+          #  - tools/format
+            - tools/build
+      - tools/release:
+          context:
+            - dockerhub-deploy
+            - github-token
+          filters:
+            branches:
+              only: main
+          requires:
+            - tools/deploy

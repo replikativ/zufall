@@ -10,3 +10,10 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
+.cache
+.cpcache
+node_modules/
+package-lock.json
+package.json
+.cljs_node_repl/
+out/
