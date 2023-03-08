@@ -5,7 +5,8 @@
     <artifactId>zufall</artifactId>
     <packaging>jar</packaging>
     <name>zufall</name>
-     <description>Random name generators</description>
+    <version>0.0.0</version>
+    <description>Random name generators</description>
     <licenses>
         <license>
             <name>Eclipse</name>
